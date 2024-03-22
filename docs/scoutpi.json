@@ -1,0 +1,562 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Scout Pi - API",
+        "description": "A FRC scouting API for the 2024 Chrescendo season",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "externalDocs": {
+        "description": "Scout Pi Github",
+        "url": "https://github.com/Mountie-Megabots/Scout-Pi"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/"
+        }
+    ],
+    "tags": [
+        {
+            "name": "comp",
+            "description": "Operations about comps"
+        },
+        {
+            "name": "team",
+            "description": "Acess to teams"
+        },
+        {
+            "name": "matches",
+            "description": "Acess to matches"
+        },
+        {
+            "name": "pitscout",
+            "description": "Acess to pit scout data"
+        },
+        {
+            "name": "scoutdata",
+            "description": "Access to scouting data"
+        },
+        {
+            "name": "user",
+            "description": "Operations about user"
+        }
+    ],
+    "paths": {
+        "/signup": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Create user",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "createUser",
+                "requestBody": {
+                    "description": "Created user object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Logs user into the system",
+                "description": "",
+                "operationId": "loginUser",
+                "requestBody": {
+                    "description": "Created user object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Login"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "headers": {
+                            "X-Rate-Limit": {
+                                "description": "calls per hour allowed by the user",
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            },
+                            "X-Expires-After": {
+                                "description": "date in UTC when token expires",
+                                "schema": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Gets the current authed user",
+                "description": "",
+                "operationId": "getUser",
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update the current authed user",
+                "description": "",
+                "operationId": "patchUser",
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/user/all": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Gets all registered users",
+                "description": "",
+                "operationId": "getAllUsers",
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/user/change-role/{userID}": {
+            "patch": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Change Users Role",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "userID",
+                        "in": "path",
+                        "description": "user that needs to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update an existent user in the store",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Role"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/user/{userID}": {
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Delete user",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "userID",
+                        "in": "path",
+                        "description": "The ID of the user that needs to be deleted",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Order": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 10
+                    },
+                    "petId": {
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 198772
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 7
+                    },
+                    "shipDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Order Status",
+                        "example": "approved",
+                        "enum": [
+                            "placed",
+                            "approved",
+                            "delivered"
+                        ]
+                    },
+                    "complete": {
+                        "type": "boolean"
+                    }
+                },
+                "xml": {
+                    "name": "order"
+                }
+            },
+            "Customer": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 100000
+                    },
+                    "username": {
+                        "type": "string",
+                        "example": "fehguy"
+                    },
+                    "address": {
+                        "type": "array",
+                        "xml": {
+                            "name": "addresses",
+                            "wrapped": true
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/Address"
+                        }
+                    }
+                },
+                "xml": {
+                    "name": "customer"
+                }
+            },
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "street": {
+                        "type": "string",
+                        "example": "437 Lytton"
+                    },
+                    "city": {
+                        "type": "string",
+                        "example": "Palo Alto"
+                    },
+                    "state": {
+                        "type": "string",
+                        "example": "CA"
+                    },
+                    "zip": {
+                        "type": "string",
+                        "example": "94301"
+                    }
+                },
+                "xml": {
+                    "name": "address"
+                }
+            },
+            "Category": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Dogs"
+                    }
+                },
+                "xml": {
+                    "name": "category"
+                }
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "example": "Mount"
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "example": "Mountie"
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "example": "Megabotss"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "12345"
+                    },
+                    "role": {
+                        "type": "string",
+                        "example": "admin"
+                    }
+                },
+                "xml": {
+                    "name": "user"
+                }
+            },
+            "Role": {
+                "type": "object",
+                "properties": {
+                    "role": {
+                        "type": "string",
+                        "example": "admin"
+                    }
+                },
+                "xml": {
+                    "name": "user"
+                }
+            },
+            "Login": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "example": "Mount"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "12345"
+                    }
+                },
+                "xml": {
+                    "name": "user"
+                }
+            },
+            "Tag": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "xml": {
+                    "name": "tag"
+                }
+            },
+            "Pet": {
+                "required": [
+                    "name",
+                    "photoUrls"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 10
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "doggie"
+                    },
+                    "category": {
+                        "$ref": "#/components/schemas/Category"
+                    },
+                    "photoUrls": {
+                        "type": "array",
+                        "xml": {
+                            "wrapped": true
+                        },
+                        "items": {
+                            "type": "string",
+                            "xml": {
+                                "name": "photoUrl"
+                            }
+                        }
+                    },
+                    "tags": {
+                        "type": "array",
+                        "xml": {
+                            "wrapped": true
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/Tag"
+                        }
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "pet status in the store",
+                        "enum": [
+                            "available",
+                            "pending",
+                            "sold"
+                        ]
+                    }
+                },
+                "xml": {
+                    "name": "pet"
+                }
+            },
+            "ApiResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "xml": {
+                    "name": "##default"
+                }
+            }
+        },
+        "requestBodies": {
+            "Pet": {
+                "description": "Pet object that needs to be added to the store",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Pet"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Pet"
+                        }
+                    }
+                }
+            },
+            "UserArray": {
+                "description": "List of user object",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiKey": {
+                "type": "apiKey",
+                "description": "Your API key obtained after signing in. (Bearer \"key\")",
+                "name": "authorization",
+                "in": "header"
+            }
+        }
+    }
+}

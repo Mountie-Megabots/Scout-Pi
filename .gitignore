@@ -1,3 +1,9 @@
+# MacOS Stuff
+.DS_Store
+
+# Data base
+*.db
+
 # Logs
 logs
 *.log

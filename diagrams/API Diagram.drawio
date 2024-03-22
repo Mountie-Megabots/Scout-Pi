@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-03-22T04:04:13.497Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="5GSbM1SO7PTJmzfXCzYK" version="24.0.7" type="device">
+<mxfile host="app.diagrams.net" modified="2024-03-22T23:42:51.236Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="kPDZMkyE9RFqNk0222LW" version="24.0.7" type="device">
   <diagram name="Page-1" id="2XcqjXFXLbwjpzAktkpY">
-    <mxGraphModel dx="1114" dy="615" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="880" dy="510" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -16,7 +16,7 @@
         <mxCell id="2I_HNkionEaUqbD5qXvZ-51" value="/all (get, auth, admin) (returns all users)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="2I_HNkionEaUqbD5qXvZ-48" vertex="1">
           <mxGeometry y="86" width="350" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="2I_HNkionEaUqbD5qXvZ-52" value="/change-role/:userId (post, auth ,admin) (update users role)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="2I_HNkionEaUqbD5qXvZ-48" vertex="1">
+        <mxCell id="2I_HNkionEaUqbD5qXvZ-52" value="/change-role/:userId (patch, auth ,admin) (update users role)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="2I_HNkionEaUqbD5qXvZ-48" vertex="1">
           <mxGeometry y="116" width="350" height="30" as="geometry" />
         </mxCell>
         <mxCell id="2I_HNkionEaUqbD5qXvZ-53" value="/:userId (delete, auth, admin) (deletes user)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="2I_HNkionEaUqbD5qXvZ-48" vertex="1">
@@ -46,7 +46,7 @@
         <mxCell id="2I_HNkionEaUqbD5qXvZ-59" value="/:compID (get, auth) (returns comp by id)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="2I_HNkionEaUqbD5qXvZ-57" vertex="1">
           <mxGeometry y="116" width="350" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="2I_HNkionEaUqbD5qXvZ-61" value="/:compID (post, auth, admin) (updates comp by id)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="2I_HNkionEaUqbD5qXvZ-57" vertex="1">
+        <mxCell id="2I_HNkionEaUqbD5qXvZ-61" value="/:compID (patch, auth, admin) (updates comp by id)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="2I_HNkionEaUqbD5qXvZ-57" vertex="1">
           <mxGeometry y="146" width="350" height="30" as="geometry" />
         </mxCell>
         <mxCell id="2I_HNkionEaUqbD5qXvZ-62" value="/:compID (delete, auth, admin) (deletes comp by id)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="2I_HNkionEaUqbD5qXvZ-57" vertex="1">
@@ -69,6 +69,57 @@
         </mxCell>
         <mxCell id="2I_HNkionEaUqbD5qXvZ-70" value="/comp/:compID/match/:matchNum (get, auth) (returns a match at a comp by match number)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="2I_HNkionEaUqbD5qXvZ-66" vertex="1">
           <mxGeometry y="86" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-1" value="/pitscout" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="820" y="600" width="560" height="176" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-2" value="/comp/:compID/all (get, auth) (returns all pitscout data at a comp)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-1">
+          <mxGeometry y="26" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-3" value="/comp/:compID/team/:teamNum (get, auth) (returns pitscout at a comp by team number)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-1">
+          <mxGeometry y="56" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-5" value="/comp/:compID/create (post, auth, admin) (create new pitscout)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-1">
+          <mxGeometry y="86" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-6" value="/comp/:compID/team/:teamNum (patch, auth, admin) (updates pitscout by comp and team number)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-1">
+          <mxGeometry y="116" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-7" value="/comp/:compID/team/:teamNum (deletes, auth, admin) (deletes pitscout by comp and team number)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-1">
+          <mxGeometry y="146" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-8" value="/scoutdata" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="820" y="800" width="780" height="326" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-9" value="/comp/:compID/all (get, auth) (returns all scout data at a comp)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+          <mxGeometry y="26" width="780" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-15" value="/comp/:compID/match/:matchNum/all (get, auth) (returns all Scout data at a comp for a match)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+          <mxGeometry y="56" width="780" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-10" value="/comp/:compID/team/:teamNum/all (get, auth) (returns all Scout data at a comp for a team number)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+          <mxGeometry y="86" width="780" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-14" value="/comp/:compID/match/:matchNum/:team/:teamNum/ (get, auth) (returns Scout data at a comp for a match by team number)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+          <mxGeometry y="116" width="780" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-11" value="/comp/:compID/create (post, auth, admin) (create new scoutdata)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+          <mxGeometry y="146" width="780" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-12" value="/comp/:compID/match/:matchNum/:team/:teamNum/ (patch, auth, admin) (updates scout by comp and team number and match Num)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+          <mxGeometry y="176" width="780" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-13" value="/comp/:compID/match/:matchNum/:team/:teamNum/ (deletes, auth, admin) (deletes scoutdata by comp and team number and match Num)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+          <mxGeometry y="206" width="780" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-16" value="/comp/:compID/match/:matchNum (deletes, auth, admin) (deletes all scout data for a match)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+          <mxGeometry y="236" width="780" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-17" value="/csv/comp/compID/all (get, auth) (gets all scouting data for a comp in csv form) (TODO)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+          <mxGeometry y="266" width="780" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-18" value="/csv/comp/:compID/team/:teamNum/all (get, auth) (gets all scouting data for a a team at a comp in csv form) (TODO)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+          <mxGeometry y="296" width="780" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

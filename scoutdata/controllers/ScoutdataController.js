@@ -1,4 +1,4 @@
-const PitScoutModel = require("../../common/models/PitScout");
+const ScoutDataModel = require("../../common/models/ScoutData");
 
 module.exports = {
   getAllPitScouts: (req, res) => {
@@ -6,7 +6,7 @@ module.exports = {
       params: { compID },
     } = req;
 
-    PitScoutModel.findAllPitScouts({ compID: compID })
+    ScoutDataModel.findAllPitScouts({ compID: compID })
       .then((teams) => {
         return res.status(200).json({
           status: true,
@@ -26,7 +26,7 @@ module.exports = {
       params: { compID, teamNum },
     } = req;
 
-    PitScoutModel.findPitScout({ compID: compID, teamNum: teamNum })
+    ScoutDataModel.findPitScout({ compID: compID, teamNum: teamNum })
       .then((teams) => {
         return res.status(200).json({
           status: true,
@@ -49,7 +49,7 @@ module.exports = {
 
     payload.compID = compID
 
-    PitScoutModel.createPitScout(payload)
+    ScoutDataModel.createPitScout(payload)
       .then((pitscout) => {
         return res.status(200).json({
           status: true,
@@ -81,9 +81,9 @@ module.exports = {
       });
     }
 
-    PitScoutModel.updatePitScout({ compID: compID, teamNum: teamNum }, payload)
+    ScoutDataModel.updatePitScout({ compID: compID, teamNum: teamNum }, payload)
       .then(() => {
-        return PitScoutModel.findPitScout({ compID: compID, teamNum: teamNum });
+        return ScoutDataModel.findPitScout({ compID: compID, teamNum: teamNum });
       })
       .then((pitscout) => {
         return res.status(200).json({
@@ -104,7 +104,7 @@ module.exports = {
       params: { compID, teamNum },
     } = req;
 
-    PitScoutModel.deletePitScout({compID: compID, teamNum: teamNum})
+    ScoutDataModel.deletePitScout({compID: compID, teamNum: teamNum})
       .then((numberOfEntriesDeleted) => {
         return res.status(200).json({
           status: true,

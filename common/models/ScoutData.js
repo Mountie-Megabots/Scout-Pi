@@ -14,12 +14,12 @@ const scoutDataModel = {
         key: 'id'
       }
   },
-  matchID: {
+  matchNum: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
         model: 'matches',
-        key: 'id'
+        key: 'matchNum'
       }
   },
   teamNum: {
@@ -46,7 +46,7 @@ const scoutDataModel = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  gsPickup: {
+  pickupLocation: {
     type: DataTypes.STRING,
     allowNull: false,
   },

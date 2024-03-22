@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 // Controller Imports
-const PitScoutController = require("./controllers/PitscoutController");
+const ScoutDataController = require("./controllers/ScoutdataController");
 
 // Middleware Imports
 const isAuthenticatedMiddleware = require("../common/middlewares/IsAuthenticatedMiddleware");
@@ -9,20 +9,20 @@ const SchemaValidationMiddleware = require("../common/middlewares/SchemaValidati
 const CheckPermissionMiddleware = require("../common/middlewares/CheckPermissionMiddleware");
 
 // JSON Schema Imports for payload verification
-const createPitScoutPayload = require("./schemas/createPitscoutPayload");
-const updatePitScoutPayload = require("./schemas/updatePitscoutPayload");
+const createScoutDataPayload = require("./schemas/createScoutdataPayload");
+const updateScoutDataPayload = require("./schemas/updateScoutdataPayload");
 const { roles } = require("../config");
 
 router.get(
   "/comp/:compID/all",
   [isAuthenticatedMiddleware.check],
-  PitScoutController.getAllPitScouts
+  ScoutDataController.getAllPitScouts
 );
 
 router.get(
   "/comp/:compID/team/:teamNum",
   [isAuthenticatedMiddleware.check],
-PitScoutController.getPitScoutByTeamNum
+ScoutDataController.getPitScoutByTeamNum
 );
 
 router.post(
@@ -30,9 +30,9 @@ router.post(
   [
     isAuthenticatedMiddleware.check,
     CheckPermissionMiddleware.has(roles.ADMIN),
-    SchemaValidationMiddleware.verify(createPitScoutPayload),
+    SchemaValidationMiddleware.verify(createScoutDataPayload),
   ],
-  PitScoutController.createPitScout
+  ScoutDataController.createPitScout
 );
 
 router.patch(
@@ -40,15 +40,15 @@ router.patch(
   [
     isAuthenticatedMiddleware.check,
     CheckPermissionMiddleware.has(roles.ADMIN),
-    SchemaValidationMiddleware.verify(updatePitScoutPayload),
+    SchemaValidationMiddleware.verify(updateScoutDataPayload),
   ],
-  PitScoutController.updatePitScout
+  ScoutDataController.updatePitScout
 );
 
 router.delete(
   "/comp/:compID/team/:teamNum",
   [isAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.ADMIN)],
-  PitScoutController.deletePitScout
+  ScoutDataController.deletePitScout
 );
 
 module.exports = router;

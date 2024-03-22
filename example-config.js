@@ -1,3 +1,5 @@
+//Create a config.js file like this before running the server
+
 module.exports = {
   port: 3000,
   jwtSecret: '##FRC2024!!', // API Key Seeds

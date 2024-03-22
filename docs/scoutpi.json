@@ -45,6 +45,530 @@
         }
     ],
     "paths": {
+        "/comp/all": {
+            "get": {
+                "tags": [
+                    "comp"
+                ],
+                "summary": "Gets all created comps",
+                "description": "",
+                "operationId": "getAllComps",
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/comp/create": {
+            "post": {
+                "tags": [
+                    "comp"
+                ],
+                "summary": "Create comp",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "createComp",
+                "requestBody": {
+                    "description": "Created comp object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Comp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Comp"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/comp/{compID}": {
+            "get": {
+                "tags": [
+                    "comp"
+                ],
+                "summary": "Get comp by compID",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getComp",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comp to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "comp"
+                ],
+                "summary": "Update comp data",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "updateComp",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comp that needs to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update an existent user in the store",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Comp"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "comp"
+                ],
+                "summary": "Delete comp",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "deleteComp",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "The ID of the comp that needs to be deleted",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid compID supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/team/{teamNum}": {
+            "get": {
+                "tags": [
+                    "team"
+                ],
+                "summary": "Get team by teamNum",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getTeam",
+                "parameters": [
+                    {
+                        "name": "teamNum",
+                        "in": "path",
+                        "description": "team to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/match/comp/{compID}/all": {
+            "get": {
+                "tags": [
+                    "matches"
+                ],
+                "summary": "Get match by compID",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getMatch",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comps matches to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/match/comp/{compID}/team/{teamNum}": {
+            "get": {
+                "tags": [
+                    "matches"
+                ],
+                "summary": "Get match by compID and teamNum",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getMatchByTeamNum",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comps matches to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teamNum",
+                        "in": "path",
+                        "description": "teams matches to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/match/comp/{compID}/match/{matchNum}": {
+            "get": {
+                "tags": [
+                    "matches"
+                ],
+                "summary": "Get match by compID and teamNum",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getMatchByTeamNum",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comps matches to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "matchNum",
+                        "in": "path",
+                        "description": "match to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/pitscout/comp/{compID}/all": {
+            "get": {
+                "tags": [
+                    "pitscout"
+                ],
+                "summary": "Get pitscout by compID",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getMatch",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comps pitscout data to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/pitscout/comp/{compID}/create": {
+            "post": {
+                "tags": [
+                    "pitscout"
+                ],
+                "summary": "Create PitScout",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "createPitScout",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "Comp for pitscout data to be added to",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Created pitscout object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PitScout"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PitScout"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/pitscout/comp/{compID}/team/{teamNum}": {
+            "get": {
+                "tags": [
+                    "pitscout"
+                ],
+                "summary": "Get PitScout Data by teamNum",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getPitScoutByTeam",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "Comp for to get pitscout data from",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teamNum",
+                        "in": "path",
+                        "description": "Team to get pitscout data for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "pitscout"
+                ],
+                "summary": "Update PitScout Data",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "updatePitScout",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "Comp for to get pitscout data from",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teamNum",
+                        "in": "path",
+                        "description": "Team to get pitscout data for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Created pitscout object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PitScout"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PitScout"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "pitscout"
+                ],
+                "summary": "Delete Pitscout",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "deletePitScout",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "Comp for to get pitscout data from",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teamNum",
+                        "in": "path",
+                        "description": "Team to get pitscout data for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
         "/signup": {
             "post": {
                 "tags": [
@@ -268,112 +792,84 @@
     },
     "components": {
         "schemas": {
-            "Order": {
+            "PitScout": {
                 "type": "object",
                 "properties": {
-                    "id": {
+                    "teamNum": {
                         "type": "integer",
-                        "format": "int64",
-                        "example": 10
+                        "example": 7197
                     },
-                    "petId": {
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 198772
-                    },
-                    "quantity": {
-                        "type": "integer",
-                        "format": "int32",
-                        "example": 7
-                    },
-                    "shipDate": {
+                    "botPic": {
                         "type": "string",
-                        "format": "date-time"
+                        "example": "Base64 Image of a bot"
                     },
-                    "status": {
+                    "autoRoutines": {
                         "type": "string",
-                        "description": "Order Status",
-                        "example": "approved",
-                        "enum": [
-                            "placed",
-                            "approved",
-                            "delivered"
-                        ]
+                        "example": "Base64 Image of auto routines or a discription of the routines"
                     },
-                    "complete": {
-                        "type": "boolean"
+                    "framePrimeter": {
+                        "type": "decimal",
+                        "example": 26.4
+                    },
+                    "weight": {
+                        "type": "decimal",
+                        "example": 115.9
+                    },
+                    "drivetrain": {
+                        "type": "string",
+                        "example": "Swerve Drive Specialitys MK4's"
+                    },
+                    "intake": {
+                        "type": "string",
+                        "example": "Ground"
+                    },
+                    "scoringPos": {
+                        "type": "string",
+                        "example": "[[12.5,20.5],[18.2,15.4]]"
+                    },
+                    "driveUnderStage": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "comments": {
+                        "type": "string",
+                        "example": "Bots name id MegaMobile"
                     }
                 },
                 "xml": {
-                    "name": "order"
+                    "name": "comp"
                 }
             },
-            "Customer": {
+            "Comp": {
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 100000
-                    },
-                    "username": {
-                        "type": "string",
-                        "example": "fehguy"
-                    },
-                    "address": {
-                        "type": "array",
-                        "xml": {
-                            "name": "addresses",
-                            "wrapped": true
-                        },
-                        "items": {
-                            "$ref": "#/components/schemas/Address"
-                        }
-                    }
-                },
-                "xml": {
-                    "name": "customer"
-                }
-            },
-            "Address": {
-                "type": "object",
-                "properties": {
-                    "street": {
-                        "type": "string",
-                        "example": "437 Lytton"
-                    },
-                    "city": {
-                        "type": "string",
-                        "example": "Palo Alto"
-                    },
-                    "state": {
-                        "type": "string",
-                        "example": "CA"
-                    },
-                    "zip": {
-                        "type": "string",
-                        "example": "94301"
-                    }
-                },
-                "xml": {
-                    "name": "address"
-                }
-            },
-            "Category": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 1
-                    },
                     "name": {
                         "type": "string",
-                        "example": "Dogs"
+                        "example": "2024 Maccomb"
+                    },
+                    "blueid": {
+                        "type": "string",
+                        "example": "2024mibkn"
                     }
                 },
                 "xml": {
-                    "name": "category"
+                    "name": "comp"
+                }
+            },
+            "CustomComp": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "2024 Maccomb"
+                    },
+                    "teams": {
+                        "type": "string",
+                        "example": "[\"7197\", \"9312\"]"
+                    }
+                },
+                "xml": {
+                    "name": "comp"
                 }
             },
             "User": {
@@ -413,7 +909,7 @@
                     }
                 },
                 "xml": {
-                    "name": "user"
+                    "name": "role"
                 }
             },
             "Login": {
@@ -429,7 +925,7 @@
                     }
                 },
                 "xml": {
-                    "name": "user"
+                    "name": "login"
                 }
             },
             "Tag": {
@@ -445,60 +941,6 @@
                 },
                 "xml": {
                     "name": "tag"
-                }
-            },
-            "Pet": {
-                "required": [
-                    "name",
-                    "photoUrls"
-                ],
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 10
-                    },
-                    "name": {
-                        "type": "string",
-                        "example": "doggie"
-                    },
-                    "category": {
-                        "$ref": "#/components/schemas/Category"
-                    },
-                    "photoUrls": {
-                        "type": "array",
-                        "xml": {
-                            "wrapped": true
-                        },
-                        "items": {
-                            "type": "string",
-                            "xml": {
-                                "name": "photoUrl"
-                            }
-                        }
-                    },
-                    "tags": {
-                        "type": "array",
-                        "xml": {
-                            "wrapped": true
-                        },
-                        "items": {
-                            "$ref": "#/components/schemas/Tag"
-                        }
-                    },
-                    "status": {
-                        "type": "string",
-                        "description": "pet status in the store",
-                        "enum": [
-                            "available",
-                            "pending",
-                            "sold"
-                        ]
-                    }
-                },
-                "xml": {
-                    "name": "pet"
                 }
             },
             "ApiResponse": {

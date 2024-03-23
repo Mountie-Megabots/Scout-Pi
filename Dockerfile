@@ -13,8 +13,8 @@ COPY package*.json ./
 # Install npm packages
 RUN npm install
 
-# Copy the rest of the Joust Brigade Server files
+# Copy the rest of the Scout PI's files
 COPY . .
 
-# Start Joust Brigade Server
+# Start Scout PI Server
 CMD [ "npm", "start" ]

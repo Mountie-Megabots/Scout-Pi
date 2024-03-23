@@ -12,7 +12,8 @@ const scoutDataModel = {
     references: {
         model: 'comps',
         key: 'id'
-      }
+      },
+      onDelete: 'CASCADE'
   },
   matchNum: {
     type: DataTypes.INTEGER,

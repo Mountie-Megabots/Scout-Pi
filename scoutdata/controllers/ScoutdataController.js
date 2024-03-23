@@ -1,12 +1,12 @@
 const ScoutDataModel = require("../../common/models/ScoutData");
 
 module.exports = {
-  getAllPitScouts: (req, res) => {
+  getAllScoutData: (req, res) => {
     const {
       params: { compID },
     } = req;
 
-    ScoutDataModel.findAllPitScouts({ compID: compID })
+    ScoutDataModel.findAllScoutData({ compID: compID })
       .then((teams) => {
         return res.status(200).json({
           status: true,
@@ -21,12 +21,32 @@ module.exports = {
       });
   },
 
-  getPitScoutByTeamNum: (req, res) => {
+  getScoutDataByMatchNum: (req, res) => {
+    const {
+      params: { compID, matchNum },
+    } = req;
+
+    ScoutDataModel.findAllScoutData({ compID: compID, matchNum: matchNum })
+      .then((teams) => {
+        return res.status(200).json({
+          status: true,
+          data: teams,
+        });
+      })
+      .catch((err) => {
+        return res.status(500).json({
+          status: false,
+          error: err,
+        });
+      });
+  },
+
+  getScoutDataByTeamNum: (req, res) => {
     const {
       params: { compID, teamNum },
     } = req;
 
-    ScoutDataModel.findPitScout({ compID: compID, teamNum: teamNum })
+    ScoutDataModel.findAllScoutData({ compID: compID, teamNum: teamNum })
       .then((teams) => {
         return res.status(200).json({
           status: true,
@@ -41,7 +61,27 @@ module.exports = {
       });
   },
 
-  createPitScout: (req, res) => {
+  getScoutDataByTeamNumByMatchNum: (req, res) => {
+    const {
+      params: { compID, teamNum, matchNum },
+    } = req;
+
+    ScoutDataModel.findScoutData({ compID: compID, teamNum: teamNum, matchNum: matchNum })
+      .then((teams) => {
+        return res.status(200).json({
+          status: true,
+          data: teams,
+        });
+      })
+      .catch((err) => {
+        return res.status(500).json({
+          status: false,
+          error: err,
+        });
+      });
+  },
+
+  createScoutData: (req, res) => {
     const {
       params: { compID },
       body: payload,
@@ -49,11 +89,11 @@ module.exports = {
 
     payload.compID = compID
 
-    ScoutDataModel.createPitScout(payload)
-      .then((pitscout) => {
+    ScoutDataModel.createScoutData(payload)
+      .then((scoutdata) => {
         return res.status(200).json({
           status: true,
-          data: pitscout.toJSON(),
+          data: scoutdata.toJSON(),
         });
       })
       .catch((err) => {
@@ -64,9 +104,9 @@ module.exports = {
       });
   },
 
-  updatePitScout: (req, res) => {
+  updateScoutData: (req, res) => {
     const {
-      params: { compID, teamNum },
+      params: { compID, teamNum, matchNum },
       body: payload,
     } = req;
 
@@ -81,9 +121,9 @@ module.exports = {
       });
     }
 
-    ScoutDataModel.updatePitScout({ compID: compID, teamNum: teamNum }, payload)
+    ScoutDataModel.updateScoutData({ compID: compID, teamNum: teamNum, matchNum: matchNum }, payload)
       .then(() => {
-        return ScoutDataModel.findPitScout({ compID: compID, teamNum: teamNum });
+        return ScoutDataModel.findScoutData({ compID: compID, teamNum: teamNum, matchNum: matchNum });
       })
       .then((pitscout) => {
         return res.status(200).json({
@@ -99,12 +139,34 @@ module.exports = {
       });
   },
 
-  deletePitScout: (req, res) => {
+  deleteScoutData: (req, res) => {
     const {
-      params: { compID, teamNum },
+      params: { compID, teamNum, matchNum },
     } = req;
 
-    ScoutDataModel.deletePitScout({compID: compID, teamNum: teamNum})
+    ScoutDataModel.deleteScoutData({compID: compID, teamNum: teamNum, matchNum: matchNum})
+      .then((numberOfEntriesDeleted) => {
+        return res.status(200).json({
+          status: true,
+          data: {
+            numberOfPitScoutsDeleted: numberOfEntriesDeleted
+          },
+        });
+      })
+      .catch((err) => {
+        return res.status(500).json({
+          status: false,
+          error: err,
+        });
+      });
+  },
+
+  deleteMatchScoutData: (req, res) => {
+    const {
+      params: { compID, matchNum },
+    } = req;
+
+    ScoutDataModel.deleteScoutData({compID: compID, matchNum: matchNum})
       .then((numberOfEntriesDeleted) => {
         return res.status(200).json({
           status: true,

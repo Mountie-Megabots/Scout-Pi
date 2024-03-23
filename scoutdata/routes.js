@@ -16,25 +16,25 @@ const { roles } = require("../config");
 router.get(
   "/comp/:compID/all",
   [isAuthenticatedMiddleware.check],
-  ScoutDataController.getAllPitScouts
+  ScoutDataController.getAllScoutData
 );
 
 router.get(
   "/comp/:compID/match/:matchNum/all",
   [isAuthenticatedMiddleware.check],
-
+  ScoutDataController.getScoutDataByMatchNum
 );
 
 router.get(
   "/comp/:compID/team/:teamNum/all",
   [isAuthenticatedMiddleware.check],
-
+  ScoutDataController.getScoutDataByTeamNum
 );
 
 router.get(
   "/comp/:compID/match/:matchNum/:team/:teamNum",
   [isAuthenticatedMiddleware.check],
-
+  ScoutDataController.getScoutDataByTeamNumByMatchNum
 );
 
 router.post(
@@ -44,7 +44,7 @@ router.post(
     CheckPermissionMiddleware.has(roles.ADMIN),
     SchemaValidationMiddleware.verify(createScoutDataPayload),
   ],
-  ScoutDataController.createPitScout
+  ScoutDataController.createScoutData
 );
 
 router.patch(
@@ -54,31 +54,31 @@ router.patch(
     CheckPermissionMiddleware.has(roles.ADMIN),
     SchemaValidationMiddleware.verify(updateScoutDataPayload),
   ],
-  
+  ScoutDataController.updateScoutData
 );
 
 router.delete(
   "/comp/:compID/match/:matchNum/:team/:teamNum",
   [isAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.ADMIN)],
-
+  ScoutDataController.deleteScoutData
 );
 
 router.delete(
   "/comp/:compID/match/:matchNum",
   [isAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.ADMIN)],
-
+  ScoutDataController.deleteMatchScoutData
 );
 
-router.get(
-  "/csv/comp/compID/all",
-  [isAuthenticatedMiddleware.check],
+// router.get(
+//   "/csv/comp/compID/all",
+//   [isAuthenticatedMiddleware.check],
 
-);
+// );
 
-router.get(
-  "/csv/comp/:compID/team/:teamNum/all",
-  [isAuthenticatedMiddleware.check],
+// router.get(
+//   "/csv/comp/:compID/team/:teamNum/all",
+//   [isAuthenticatedMiddleware.check],
 
-);
+// );
 
 module.exports = router;

@@ -14,6 +14,7 @@ const CompRoutes = require("./comps/routes");
 const TeamRoutes = require("./teams/routes");
 const MatchRoutes = require("./matches/routes");
 const PitScoutRoutes = require("./pitscout/routes");
+const ScoutDataRoutes = require("./scoutdata/routes");
 
 // Sequelize model imports
 const UserModel = require("./common/models/User");
@@ -68,6 +69,7 @@ sequelize
     app.use("/comp", CompRoutes);
     app.use("/match", MatchRoutes);
     app.use("/pitscout", PitScoutRoutes);
+    app.use("/scoutdata", ScoutDataRoutes);
 
     app.listen(PORT, () => {
       console.log("Server Listening on PORT:", port);

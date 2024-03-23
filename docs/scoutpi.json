@@ -360,7 +360,7 @@
                 ],
                 "summary": "Get pitscout by compID",
                 "description": "This can only be done by the logged in user.",
-                "operationId": "getMatch",
+                "operationId": "getPitScout",
                 "parameters": [
                     {
                         "name": "compID",
@@ -560,6 +560,376 @@
                     },
                     "404": {
                         "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/scoutdata/comp/{compID}/all": {
+            "get": {
+                "tags": [
+                    "scoutdata"
+                ],
+                "summary": "Get scoutdata by compID",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getScoutdata",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comps scout data to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/scoutdata/comp/{compID}/match/{matchNum}/all": {
+            "get": {
+                "tags": [
+                    "scoutdata"
+                ],
+                "summary": "Get scoutdata by compID and matchNum",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getScoutdata",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comps scout data to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "matchNum",
+                        "in": "path",
+                        "description": "matches scout data to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/scoutdata/comp/{compID}/team/{teamNum}/all": {
+            "get": {
+                "tags": [
+                    "scoutdata"
+                ],
+                "summary": "Get scoutdata by compID and teamNum",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getScoutdata",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comps scout data to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teamNum",
+                        "in": "path",
+                        "description": "teams scout data to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/scoutdata/comp/{compID}/match/{matchNum}/team/{teamNum}": {
+            "get": {
+                "tags": [
+                    "scoutdata"
+                ],
+                "summary": "Get scoutdata by compID and matchNum and teamNum",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getScoutdata",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comps scout data to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "matchNum",
+                        "in": "path",
+                        "description": "matches scout data to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teamNum",
+                        "in": "path",
+                        "description": "teams scout data to be returned",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+                ,
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "scoutdata"
+                ],
+                "summary": "Update Scoutdata",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "updateScoutData",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "comps scout data to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "matchNum",
+                        "in": "path",
+                        "description": "matches scout data to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teamNum",
+                        "in": "path",
+                        "description": "teams scout data to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                    
+                ],
+                "requestBody": {
+                    "description": "Created scoutdata object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ScoutData"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ScoutData"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "scoutdata"
+                ],
+                "summary": "Delete Scoutdata",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "deleteScoutData",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "Comp to delete scout data from",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "matchNum",
+                        "in": "path",
+                        "description": "matches to delete scoutdata from",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "teamNum",
+                        "in": "path",
+                        "description": "Team to delete scout data form",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid Data supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/scoutdata/comp/{compID}/match/{matchNum}": {
+            "delete": {
+                "tags": [
+                    "scoutdata"
+                ],
+                "summary": "Delete Scoutdata for whole match",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "deleteScoutData",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "Comp to delete scout data from",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "matchNum",
+                        "in": "path",
+                        "description": "matches to delete scoutdata from",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid Data supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/scoutdata/comp/{compID}/create": {
+            "post": {
+                "tags": [
+                    "scoutdata"
+                ],
+                "summary": "Create ScoutData",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "createScoutData",
+                "parameters": [
+                    {
+                        "name": "compID",
+                        "in": "path",
+                        "description": "Comp for Scoutdata data to be added to",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Created scoutdata object",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ScoutData"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ScoutData"
+                                }
+                            }
+                        }
                     }
                 },
                 "security": [
@@ -792,6 +1162,82 @@
     },
     "components": {
         "schemas": {
+            "ScoutData": {
+                "type": "object",
+                "properties": {
+                    "matchNum": {
+                        "type": "integer",
+                        "example": 52
+                    },
+                    "teamNum": {
+                        "type": "integer",
+                        "example": 7197
+                    },
+                    "startPos": {
+                        "type": "string",
+                        "example": "[[12.5,20.5],[18.2,15.4]]"
+                    },
+                    "autoLeave": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "notesScoredAuto": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "notesAutoOrder": {
+                        "type": "string",
+                        "example": "[0,2,3,4,1,6,7,8]"
+                    },
+                    "pickupLocation": {
+                        "type": "string",
+                        "example": "[[12.5,20.5],[18.2,15.4]]"
+                    },
+                    "ampNotesScored": {
+                        "type": "integer",
+                        "example": 4
+                    },
+                    "speakerNotesScored": {
+                        "type": "integer",
+                        "example": 8
+                    },
+                    "speakerNotesMissed": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "scoringPos": {
+                        "type": "string",
+                        "example": "[[12.5,20.5],[18.2,15.4]]"
+                    },
+                    "drivingQuality": {
+                        "type": "integer",
+                        "example": 8
+                    },
+                    "penalities": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "disconnects": {
+                        "type": "integer",
+                        "example": 0
+                    },
+                    "proformaceUnderDefense": {
+                        "type": "integer",
+                        "example": 7
+                    },
+                    "defenseByBot": {
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "comments": {
+                        "type": "string",
+                        "example": "Very Fast Cycle Times"
+                    }
+                },
+                "xml": {
+                    "name": "comp"
+                }
+            },
             "PitScout": {
                 "type": "object",
                 "properties": {

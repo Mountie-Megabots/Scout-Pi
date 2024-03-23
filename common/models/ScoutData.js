@@ -17,10 +17,10 @@ const scoutDataModel = {
   matchNum: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    references: {
-        model: 'matches',
-        key: 'matchNum'
-      }
+    // references: {
+    //     model: 'matches',
+    //     key: 'matchNum'
+    //   }
   },
   teamNum: {
     type: DataTypes.INTEGER,

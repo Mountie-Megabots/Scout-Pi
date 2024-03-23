@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-22T23:42:51.236Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="kPDZMkyE9RFqNk0222LW" version="24.0.7" type="device">
+<mxfile host="app.diagrams.net" modified="2024-03-23T00:09:45.491Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="mrb6NKgttp5Oo2_2V4Eg" version="24.0.7" type="device">
   <diagram name="Page-1" id="2XcqjXFXLbwjpzAktkpY">
     <mxGraphModel dx="880" dy="510" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -100,16 +100,16 @@
         <mxCell id="T916K3ZrtNZ5EOO3AMyw-10" value="/comp/:compID/team/:teamNum/all (get, auth) (returns all Scout data at a comp for a team number)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
           <mxGeometry y="86" width="780" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="T916K3ZrtNZ5EOO3AMyw-14" value="/comp/:compID/match/:matchNum/:team/:teamNum/ (get, auth) (returns Scout data at a comp for a match by team number)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-14" value="/comp/:compID/match/:matchNum/:team/:teamNum (get, auth) (returns Scout data at a comp for a match by team number)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
           <mxGeometry y="116" width="780" height="30" as="geometry" />
         </mxCell>
         <mxCell id="T916K3ZrtNZ5EOO3AMyw-11" value="/comp/:compID/create (post, auth, admin) (create new scoutdata)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
           <mxGeometry y="146" width="780" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="T916K3ZrtNZ5EOO3AMyw-12" value="/comp/:compID/match/:matchNum/:team/:teamNum/ (patch, auth, admin) (updates scout by comp and team number and match Num)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-12" value="/comp/:compID/match/:matchNum/:team/:teamNum (patch, auth, admin) (updates scout by comp and team number and match Num)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
           <mxGeometry y="176" width="780" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="T916K3ZrtNZ5EOO3AMyw-13" value="/comp/:compID/match/:matchNum/:team/:teamNum/ (deletes, auth, admin) (deletes scoutdata by comp and team number and match Num)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
+        <mxCell id="T916K3ZrtNZ5EOO3AMyw-13" value="/comp/:compID/match/:matchNum/:team/:teamNum (deletes, auth, admin) (deletes scoutdata by comp and team number and match Num)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">
           <mxGeometry y="206" width="780" height="30" as="geometry" />
         </mxCell>
         <mxCell id="T916K3ZrtNZ5EOO3AMyw-16" value="/comp/:compID/match/:matchNum (deletes, auth, admin) (deletes all scout data for a match)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="T916K3ZrtNZ5EOO3AMyw-8">

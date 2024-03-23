@@ -20,9 +20,21 @@ router.get(
 );
 
 router.get(
-  "/comp/:compID/team/:teamNum",
+  "/comp/:compID/match/:matchNum/all",
   [isAuthenticatedMiddleware.check],
-ScoutDataController.getPitScoutByTeamNum
+
+);
+
+router.get(
+  "/comp/:compID/team/:teamNum/all",
+  [isAuthenticatedMiddleware.check],
+
+);
+
+router.get(
+  "/comp/:compID/match/:matchNum/:team/:teamNum",
+  [isAuthenticatedMiddleware.check],
+
 );
 
 router.post(
@@ -36,19 +48,37 @@ router.post(
 );
 
 router.patch(
-  "/comp/:compID/team/:teamNum",
+  "/comp/:compID/match/:matchNum/:team/:teamNum",
   [
     isAuthenticatedMiddleware.check,
     CheckPermissionMiddleware.has(roles.ADMIN),
     SchemaValidationMiddleware.verify(updateScoutDataPayload),
   ],
-  ScoutDataController.updatePitScout
+  
 );
 
 router.delete(
-  "/comp/:compID/team/:teamNum",
+  "/comp/:compID/match/:matchNum/:team/:teamNum",
   [isAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.ADMIN)],
-  ScoutDataController.deletePitScout
+
+);
+
+router.delete(
+  "/comp/:compID/match/:matchNum",
+  [isAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.ADMIN)],
+
+);
+
+router.get(
+  "/csv/comp/compID/all",
+  [isAuthenticatedMiddleware.check],
+
+);
+
+router.get(
+  "/csv/comp/:compID/team/:teamNum/all",
+  [isAuthenticatedMiddleware.check],
+
 );
 
 module.exports = router;

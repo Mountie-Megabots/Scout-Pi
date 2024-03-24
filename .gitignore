@@ -6,6 +6,8 @@
 
 # Config-File
 config.js*
+nginx.conf*
+docker-compose.yml*
 
 # Logs
 logs

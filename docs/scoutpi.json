@@ -322,7 +322,7 @@
                 ],
                 "summary": "Get match by compID and teamNum",
                 "description": "This can only be done by the logged in user.",
-                "operationId": "getMatchByTeamNum",
+                "operationId": "getMatchByMatchNum",
                 "parameters": [
                     {
                         "name": "compID",
@@ -611,7 +611,7 @@
                 ],
                 "summary": "Get scoutdata by compID and matchNum",
                 "description": "This can only be done by the logged in user.",
-                "operationId": "getScoutdata",
+                "operationId": "getScoutdatabymatch",
                 "parameters": [
                     {
                         "name": "compID",
@@ -652,7 +652,7 @@
                 ],
                 "summary": "Get scoutdata by compID and teamNum",
                 "description": "This can only be done by the logged in user.",
-                "operationId": "getScoutdata",
+                "operationId": "getScoutdatabyteam",
                 "parameters": [
                     {
                         "name": "compID",
@@ -693,7 +693,7 @@
                 ],
                 "summary": "Get scoutdata by compID and matchNum and teamNum",
                 "description": "This can only be done by the logged in user.",
-                "operationId": "getScoutdata",
+                "operationId": "getScoutdatabymatchbyteam",
                 "parameters": [
                     {
                         "name": "compID",

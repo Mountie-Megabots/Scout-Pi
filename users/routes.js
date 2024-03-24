@@ -12,7 +12,7 @@ const UserController = require("./controllers/UserController");
 const updateUserPayload = require("./schemas/updateUserPayload");
 const changeRolePayload = require("./schemas/changeRolePayload");
 
-const { roles } = require("../config");
+const { roles } = require("../config/config");
 
 router.get("/", [isAuthenticatedMiddleware.check], UserController.getUser);
 

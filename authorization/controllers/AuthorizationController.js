@@ -3,7 +3,7 @@ const crypto = require("crypto");
 
 const UserModel = require("../../common/models/User");
 
-const { roles, jwtSecret, jwtExpirationInSeconds } = require("../../config");
+const { roles, jwtSecret, jwtExpirationInSeconds } = require("../../config/config");
 
 // Generates an Access Token using username and userId for the user's authentication
 const generateAccessToken = (username, userId) => {

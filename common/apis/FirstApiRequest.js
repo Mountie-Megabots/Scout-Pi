@@ -1,6 +1,6 @@
 const host = "https://frc-api.firstinspires.org/v3.0";
 
-const { firstAPIKey } = require("../../config");
+const { firstAPIKey } = require("../../config/config");
 
 const EncodeTo64 = (toEncode) =>
     {

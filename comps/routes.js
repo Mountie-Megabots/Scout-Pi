@@ -11,7 +11,7 @@ const CheckPermissionMiddleware = require("../common/middlewares/CheckPermission
 // JSON Schema Imports for payload verification
 const createCompPayload = require("./schemas/createCompPayload");
 const updateCompPayload = require("./schemas/updateCompPayload");
-const { roles } = require("../config");
+const { roles } = require("../config/config");
 
 router.get(
   "/all",

@@ -4,7 +4,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const { Sequelize } = require("sequelize");
 
-const { port } = require("./config");
+const { port } = require("./config/config");
 const PORT = process.env.PORT || port;
 
 // Express Routes Import

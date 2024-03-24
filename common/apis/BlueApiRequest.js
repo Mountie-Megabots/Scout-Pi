@@ -1,6 +1,6 @@
 const host = "https://www.thebluealliance.com/api/v3";
 
-const { blueAllianceAPIKey } = require("../../config");
+const { blueAllianceAPIKey } = require("../../config/config");
 
 module.exports = {
     MakeBlueApiRequest: async (apiData) =>

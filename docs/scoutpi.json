@@ -806,7 +806,7 @@
                 ],
                 "summary": "Delete Scoutdata",
                 "description": "This can only be done by the logged in user.",
-                "operationId": "deleteScoutData",
+                "operationId": "deleteScoutDatabymatchandteam",
                 "parameters": [
                     {
                         "name": "compID",

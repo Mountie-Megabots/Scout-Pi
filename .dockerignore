@@ -8,5 +8,6 @@ package-lock.json
 Dockerfile
 .dockerignore
 .gitignore
+/docker-compose
 /.git
 /.github

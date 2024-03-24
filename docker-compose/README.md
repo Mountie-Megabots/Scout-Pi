@@ -2,4 +2,4 @@
 
 These examples are slighty modified versions of the files for the tutorial below but modified to work with the scoutpi container.
 
-*https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose#step-4-obtaining-ssl-certificates-and-credentials*
+*https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose*

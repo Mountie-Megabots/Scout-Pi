@@ -4,15 +4,23 @@ const router = require("express").Router();
 const AuthorizationController = require("./controllers/AuthorizationController");
 
 // Middleware Imports
+const isAuthenticatedMiddleware = require("./../common/middlewares/IsAuthenticatedMiddleware");
 const SchemaValidationMiddleware = require("../common/middlewares/SchemaValidationMiddleware");
+const CheckPermissionMiddleware = require("../common/middlewares/CheckPermissionMiddleware");
 
 // JSON Schema Imports for payload verification
 const registerPayload = require("./schemas/registerPayload");
 const loginPayload = require("./schemas/loginPayload");
 
+const { roles } = require("../config/config");
+
 router.post(
   "/signup",
-  [SchemaValidationMiddleware.verify(registerPayload)],
+  [
+    isAuthenticatedMiddleware.check,
+    CheckPermissionMiddleware.has(roles.SUPADMIN),
+    SchemaValidationMiddleware.verify(registerPayload),
+  ],
   AuthorizationController.register
 );
 

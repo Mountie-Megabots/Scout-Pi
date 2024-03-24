@@ -27,7 +27,7 @@ router.patch(
 
 router.get(
   "/all",
-  [isAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.ADMIN)],
+  [isAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.SUPADMIN)],
   UserController.getAllUsers
 );
 
@@ -35,7 +35,7 @@ router.patch(
   "/change-role/:userId",
   [
     isAuthenticatedMiddleware.check,
-    CheckPermissionMiddleware.has(roles.ADMIN),
+    CheckPermissionMiddleware.has(roles.SUPADMIN),
     SchemaValidationMiddleware.verify(changeRolePayload),
   ],
   UserController.changeRole
@@ -43,7 +43,7 @@ router.patch(
 
 router.delete(
   "/:userId",
-  [isAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.ADMIN)],
+  [isAuthenticatedMiddleware.check, CheckPermissionMiddleware.has(roles.SUPADMIN)],
   UserController.deleteUser
 );
 

@@ -31,6 +31,19 @@ const encryptPassword = (password) => {
 };
 
 module.exports = {
+
+  registerDefault: (payload) => {
+    let encryptedPassword = encryptPassword(payload.password);
+    let role = payload.role;
+
+    UserModel.createUser(
+      Object.assign(payload, { password: encryptedPassword, role })
+    )
+    .catch((err) => {
+      console.log("Default User Already Created");
+    });
+  },
+
   register: (req, res) => {
     const payload = req.body;
 

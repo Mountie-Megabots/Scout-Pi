@@ -23,8 +23,14 @@ const TeamModel = require("./common/models/Team");
 const PitScoutModel = require("./common/models/PitScout");
 const MatchModel = require("./common/models/Match");
 const ScoutDataModel = require("./common/models/ScoutData");
+
+// Api Request Imports
 const { MakeBlueApiRequest } = require("./common/apis/BlueApiRequest");
 const { MakeFirstApiRequest } = require("./common/apis/FirstApiRequest");
+
+// Imports
+const AuthorizationController = require("./authorization/controllers/AuthorizationController");
+const config = require("./config/config");
 
 app.use(morgan("tiny"));
 app.use(cors());
@@ -46,6 +52,7 @@ PitScoutModel.initialise(sequelize);
 MatchModel.initialise(sequelize);
 ScoutDataModel.initialise(sequelize);
 
+
 // Gets Event List 
 // MakeBlueApiRequest("/team/frc" + 7197 + "/events/" + 2024 + "/simple").then((data) => {console.log(data)});
 // Gets All Teams At An Event
@@ -61,6 +68,9 @@ sequelize
   .sync()
   .then(() => {
     console.log("Sequelize Initialised!!");
+
+    // Create Default User
+    AuthorizationController.registerDefault(config.defaultUser) 
 
     // Attaching the Authentication and User Routes to the app.
     app.use("/", AuthorizationRoutes);

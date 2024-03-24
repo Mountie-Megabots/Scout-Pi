@@ -971,7 +971,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                      "apiKey": []
+                    }
+                ]
             }
         },
         "/login": {
@@ -1334,7 +1339,7 @@
                     },
                     "lastName": {
                         "type": "string",
-                        "example": "Megabotss"
+                        "example": "Megabots"
                     },
                     "password": {
                         "type": "string",

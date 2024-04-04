@@ -32,7 +32,11 @@ const pitScoutModel = {
     allowNull: false,
   },
   framePrimeter: {
-    type: DataTypes.DECIMAL,
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  drivetrainType: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
   weight: {
@@ -47,12 +51,28 @@ const pitScoutModel = {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  scoringType: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   scoringPos: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  driveUnderStage: {
+  trap: {
     type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
+  driveUnderStage: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  help: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  helpDetails: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
   comments: {

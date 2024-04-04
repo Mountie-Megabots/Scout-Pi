@@ -11,7 +11,10 @@ module.exports = {
       type: "string",
     },
     framePrimeter: {
-      type: "number",
+      type: "string",
+    },
+    drivetrainType: {
+      type: "string",
     },
     weight: {
       type: "number",
@@ -22,11 +25,23 @@ module.exports = {
     intake: {
       type: "string",
     },
+    scoringType: {
+      type: "string",
+    },
     scoringPos: {
       type: "string",
     },
-    driveUnderStage: {
+    trap: {
       type: "boolean",
+    },
+    driveUnderStage: {
+      type: "string",
+    },
+    help: {
+      type: "string",
+    },
+    helpDetails: {
+      type: "string",
     },
     comments: {
       type: "string",

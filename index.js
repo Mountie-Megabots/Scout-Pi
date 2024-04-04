@@ -2,6 +2,7 @@ const Express = require("express");
 const app = Express();
 const cors = require("cors");
 const morgan = require("morgan");
+const bodyParser = require('body-parser')
 const { Sequelize } = require("sequelize");
 
 const { port } = require("./config/config");
@@ -34,6 +35,8 @@ const config = require("./config/config");
 
 app.use(morgan("tiny"));
 app.use(cors());
+
+app.use(bodyParser.json({limit: '1000mb', type: 'application/json'}));
 
 // Middleware that parses the body payloads as JSON to be consumed next set
 // of middlewares and controllers.
